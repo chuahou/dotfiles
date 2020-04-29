@@ -1,0 +1,4 @@
+# NordVPN
+[nordvpn]
+command=~/.config/regolith/i3xrocks/nordvpn.sh
+interval=10
