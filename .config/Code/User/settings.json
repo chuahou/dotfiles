@@ -1,0 +1,73 @@
+{
+	// font settings
+	"editor.fontFamily": "'badfont', 'Victor Mono Medium', 'Fira Code', 'Inconsolata', 'Source Code Pro', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+	"editor.fontLigatures": false, // set to true for ligatured fonts
+	"editor.fontSize": 22,
+	"terminal.integrated.fontSize": 28,
+	"editor.lineHeight": 22,
+
+	// always show foldable controls
+	"editor.showFoldingControls": "always",
+
+	// render whitespace etc.
+	"editor.renderWhitespace": "all",
+	"editor.renderControlCharacters": true,
+
+	// render ruler at 80
+	"workbench.tree.renderIndentGuides": "always",
+	"editor.rulers": [ 80 ],
+
+	// diffEditor settings
+	"diffEditor.ignoreTrimWhitespace": false, // show whitespace changes
+	"diffEditor.renderSideBySide": false, // render changes inline
+
+	// use hard tabs but auto indentation detection
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": true,
+
+	// insert final newline
+	"files.insertFinalNewline": true,
+
+	// terminal settings
+	"terminal.integrated.allowChords": false, // don't allow chords
+	"terminal.integrated.env.linux":
+	{
+		"visual_studio": "true" // set env for bashrc to adjust PS1
+	},
+
+	// disable telemetry
+	"telemetry.enableCrashReporter": false,
+	"telemetry.enableTelemetry": false,
+
+	// doxdocgen settings: remove unnecessary tags
+	"doxdocgen.file.versionTag": "",
+	"doxdocgen.generic.authorEmail": "",
+	"doxdocgen.generic.authorTag": "",
+	"doxdocgen.generic.dateFormat": "",
+	"doxdocgen.file.copyrightTag": [],
+
+	// LaTeX workshop settings
+	"latex-workshop.intellisense.package.enabled": true,
+	"latex-workshop.latex.external.build.command": "make", // use Makefile
+	"latex-workshop.view.pdf.viewer": "tab", // show PDF as another tab
+	"latex-workshop.latex.autoClean.run": "onBuilt", // clean on built
+
+	// render EOL and highlight problems
+	"code-eol.crlfCharacter": "↵↓",
+	"code-eol.newlineCharacter": "→",
+	"code-eol.highlightExtraWhitespace": true,
+	"code-eol.highlightNonDefault": true,
+	"editor.autoClosingBrackets": "never",
+
+	// don't suggest snippets for C++
+	"C_Cpp.suggestSnippets": false,
+
+	// don't suggest words randomly
+	"editor.wordBasedSuggestions": false,
+
+	// don't show menu unless Alt is pressed
+	"window.menuBarVisibility": "toggle",
+
+	// theming
+	"workbench.colorTheme": "Visual Studio Dark",
+}
