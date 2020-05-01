@@ -1,17 +1,18 @@
 #!/bin/bash
 #
-# undoes install.sh run with same arguments
+# undoes install.sh run with same arguments, -d to delete non backed up files
 #
-# ./uninstall.sh -o(utput) [HOME] -i(gnore) [IGNORE] -b(ackup) [BACKUP]
+# ./uninstall.sh -o(utput) [HOME] -i(gnore) [IGNORE] -b(ackup) [BACKUP] -d(elete)
 
 set -e
 
 print_usage ()
 {
-	echo "Usage: ./install.sh -o [HOME] -i [IGNORE] -b [BACKUP]"
+	echo "Usage: ./install.sh -o [HOME] -i [IGNORE] -b [BACKUP] -d"
 	echo "    [HOME]: base directory (usually ~) to install symlinks in"
 	echo "    [IGNORE]: file with paths to ignore"
 	echo "    [BACKUP]: directory to backup to"
+	echo "    -d: delete files without backups"
 }
 
 # defaults
@@ -20,7 +21,7 @@ ARGIGNORE=.install_ignore
 ARGBACKUP=$(pwd)/.dotfiles_backup
 
 # get options
-while getopts 'o:i:b:' OPTION; do
+while getopts 'o:i:b:d' OPTION; do
 	case "$OPTION" in
 		o)
 			ARGHOME="$OPTARG"
@@ -30,6 +31,9 @@ while getopts 'o:i:b:' OPTION; do
 			;;
 		b)
 			ARGBACKUP="$OPTARG"
+			;;
+		d)
+			ARGDELETE="yes"
 			;;
 		?)
 			print_usage
@@ -73,7 +77,11 @@ for DOTFILE in $DOTFILES; do
 
 	# check backup exists
 	if [ ! -e "$BACKUPPATH" ]; then
-		>&2 echo "$BACKUPPATH does not exist, not restoring $HOMEPATH"
+		if [ -n "$ARGDELETE" ]; then # delete file without backup
+			rm $HOMEPATH
+		else
+			>&2 echo "$BACKUPPATH does not exist, not restoring $HOMEPATH"
+		fi
 	elif [[ -L "$BACKUPPATH" ]]; then
 		>&2 echo "$BACKUPPATH is symlink, not restoring $HOMEPATH"
 	else
