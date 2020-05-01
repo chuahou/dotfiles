@@ -4,6 +4,8 @@
 #
 # ./extract.sh -f(ile) [FILE] -d(irectory) [HOME] -o(utput) [DOTFILES]
 
+set -e
+
 print_usage ()
 {
 	echo "Usage: ./extract.sh -f [FILE] -d [HOME] -o [DOTFILES]"

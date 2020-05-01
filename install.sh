@@ -5,6 +5,8 @@
 #
 # ./install.sh -o(utput) [HOME] -i(gnore) [IGNORE] -b(ackup) [BACKUP]
 
+set -e
+
 print_usage ()
 {
 	echo "Usage: ./install.sh -o [HOME] -i [IGNORE] -b [BACKUP]"
@@ -79,6 +81,6 @@ for DOTFILE in $DOTFILES; do
 
 	# create symlinks
 	mkdir -p $(dirname $HOMEPATH)
-	ln -s $DOTPATH $HOMEPATH || exit 1
+	ln -s $DOTPATH $HOMEPATH
 	echo "Linked $HOMEPATH -> $DOTPATH"
 done
