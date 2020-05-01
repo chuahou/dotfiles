@@ -39,7 +39,7 @@ while getopts 'o:i:b:' OPTION; do
 	esac
 done
 
-# ensure output directory exists and is directory
+# ensure home directory exists and is directory
 if [ ! -d "$ARGHOME" ]; then
 	>&2 echo "$ARGHOME is not a directory"
 	exit 1
