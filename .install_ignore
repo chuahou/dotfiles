@@ -1,4 +1,5 @@
 .git/*
+.gitignore
 extract.sh
 unlink.sh
 install.sh
