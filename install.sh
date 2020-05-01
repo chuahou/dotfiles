@@ -69,5 +69,16 @@ for DOTFILE in $DOTFILES; do
 	# generate full paths
 	HOMEPATH=$HOME/$DOTFILE # path of file in [HOME]
 	DOTPATH=$(pwd)/$DOTFILE # path of file in .
-	BACKUPPATH=$(pwd)/$ARGBACKUP/$DOTFILE # path of backup
+	BACKUPPATH=$ARGBACKUP/$DOTFILE # path of backup
+
+	# create backups if file already exists
+	if [ -e "$HOMEPATH" ]; then
+		mkdir -p $(dirname $BACKUPPATH)
+		mv -i $HOMEPATH $BACKUPPATH
+	fi
+
+	# create symlinks
+	mkdir -p $(dirname $HOMEPATH)
+	ln -s $DOTPATH $HOMEPATH || exit 1
+	echo "Linked $HOMEPATH -> $DOTPATH"
 done
