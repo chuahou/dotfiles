@@ -1,0 +1,5 @@
+.git/*
+extract.sh
+unlink.sh
+install.sh
+uninstall.sh
