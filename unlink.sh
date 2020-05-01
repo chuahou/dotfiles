@@ -15,6 +15,15 @@ print_usage ()
 	echo "    -n: don't check that ~/FILE links to DOTFILES/FILE"
 }
 
+abort ()
+{
+	read USERINPUT
+	if [ ! "$USERINPUT" = "y" ]; then
+		echo "Aborting."
+		exit 1
+	fi
+}
+
 # defaults
 ARGHOME=$HOME
 ARGDOTS=$HOME/.dotfiles
@@ -71,20 +80,13 @@ OUTFILE="$ARGHOME/$ARGFILE"
 # check output file does exist
 if [ ! -e "$OUTFILE" ]; then
 	echo "$OUTFILE does not exist, really unlink? (y to proceed, otherwise to cancel)"
-	read USERINPUT
-	if [ "$USERINPUT" != "y" ]; then
-		echo "Aborting."
-		exit
-	fi
+	abort
 else # if exists, ensure it is linked to input file unless ARGNOLINK is set
 	if [ -z "$ARGNOLINK" ]; then
 		if [ $(realpath $OUTFILE) != "$INFILE" ]; then
 			echo "$OUTFILE does not link to $INFILE, really unlink? (y to proceed, otherwise to cancel)"
 			read USERINPUT
-			if [ "$USERINPUT" != "y" ]; then
-				echo "Aborting."
-				exit
-			fi
+			abort
 		fi
 	fi
 
