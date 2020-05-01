@@ -1,5 +1,6 @@
 .git/*
 .gitignore
+.dotfiles_backup/*
 extract.sh
 unlink.sh
 install.sh
