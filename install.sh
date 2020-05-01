@@ -1,18 +1,17 @@
 #!/bin/bash
 #
-# installs all current files in this directory to [HOME], ignoring paths matched
-# by paths listed in [IGNORE], and backup originals (if any) to [BACKUP]
+# undoes install.sh run with same arguments
 #
-# ./install.sh -o(utput) [HOME] -i(gnore) [IGNORE] -b(ackup) [BACKUP]
+# ./uninstall.sh -o(utput) [HOME] -i(gnore) [IGNORE] -b(ackup) [BACKUP]
 
 set -e
 
 print_usage ()
 {
-	echo "Usage: ./install.sh -o [HOME] -i [IGNORE] -b [BACKUP]"
-	echo "    [HOME]: base directory (usually ~) to install symlinks in"
+	echo "Usage: ./uninstall.sh -o [HOME] -i [IGNORE] -b [BACKUP]"
+	echo "    [HOME]: base directory (usually ~) to uninstall symlinks from"
 	echo "    [IGNORE]: file with paths to ignore"
-	echo "    [BACKUP]: directory to backup to"
+	echo "    [BACKUP]: directory to restore backups from"
 }
 
 # defaults
@@ -39,7 +38,7 @@ while getopts 'o:i:b:' OPTION; do
 	esac
 done
 
-# ensure home directory exists and is directory
+# ensure output directory exists and is directory
 if [ ! -d "$ARGHOME" ]; then
 	>&2 echo "$ARGHOME is not a directory"
 	exit 1
@@ -69,7 +68,7 @@ DOTFILES=$(echo "$IGNOREFILES" | \
 # loop through each dotfile
 for DOTFILE in $DOTFILES; do
 	# generate full paths
-	HOMEPATH=$HOME/$DOTFILE # path of file in [HOME]
+	HOMEPATH=$ARGHOME/$DOTFILE # path of file in [HOME]
 	DOTPATH=$(pwd)/$DOTFILE # path of file in .
 	BACKUPPATH=$ARGBACKUP/$DOTFILE # path of backup
 
