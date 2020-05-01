@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# undoes install.sh run with same arguments
+# installs all current files in this directory to [HOME], ignoring paths matched
+# by paths listed in [IGNORE], and backup originals (if any) to [BACKUP]
 #
 # ./uninstall.sh -o(utput) [HOME] -i(gnore) [IGNORE] -b(ackup) [BACKUP]
 
