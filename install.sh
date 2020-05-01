@@ -60,3 +60,11 @@ DOTFILES=$(echo "$IGNOREFILES" | \
 	xargs printf "! -path ./%s " | \
 	xargs find . -type f | \
 	sed -r "s|^\./||g") # get paths of DOTFILES and ignore paths, then remove ./
+
+# loop through each dotfile
+for DOTFILE in $DOTFILES; do
+	# generate full paths
+	HOMEPATH=$HOME/$DOTFILE # path of file in [HOME]
+	DOTPATH=$(pwd)/$DOTFILE # path of file in .
+	BACKUPPATH=$(pwd)/$ARGBACKUP/$DOTFILE # path of backup
+done
