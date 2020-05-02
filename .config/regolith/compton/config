@@ -17,7 +17,8 @@ detect-client-opacity = true; # detect _NET_WM_OPACITY
 opacity-rule = # custom application opacity
 [
 	"95:class_g *?= 'code'", # vscode
-	"95:class_g *?= 'rofi'" # rofi
+	"80:class_g *?= 'rofi'", # rofi
+	"80:class_g *?= 'dunst'" # dunst
 ];
 
 # vsync
