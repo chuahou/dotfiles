@@ -5,16 +5,6 @@ backend = "xrender"; # glx / xrender, glx has been buggy for me
 inactive-dim = 0.03; # dim inactive windows
 inactive-dim-fixed = true; # dim independently of opacity
 
-# blur background
-blur-background = true; # blur background of transparent windows
-blur-background-frame = true; # blur transparent parts of opaque windows
-blur-background-exclude = # exclude these from background blur
-[
-	"window_type = 'dock'",
-	"window_type = 'desktop'"
-];
-blur-kern = "7x7box";
-
 # fading
 fading = true;
 fade-delta = 10;
