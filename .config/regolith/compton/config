@@ -13,6 +13,7 @@ blur-background-exclude = # exclude these from background blur
 	"window_type = 'dock'",
 	"window_type = 'desktop'"
 ];
+blur-kern = "7x7box";
 
 # fading
 fading = true;
