@@ -60,7 +60,7 @@ green=$(tput setaf 2)
 cyan=$(tput setaf 6)
 blue=$(tput setaf 4)
 red=$(tput setaf 1)
-default=$(tput op)
+default=$(tput sgr0; tput op)
 
 if [ "$color_prompt" = yes ]; then
     PS1="${debian_chroot:+($debian_chroot)}\[$green\]-> \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$blue\]\$ \[$default\]"
