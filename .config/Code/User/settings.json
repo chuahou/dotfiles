@@ -30,10 +30,6 @@
 
 	// terminal settings
 	"terminal.integrated.allowChords": false, // don't allow chords
-	"terminal.integrated.env.linux":
-	{
-		"visual_studio": "true" // set env for bashrc to adjust PS1
-	},
 
 	// disable telemetry
 	"telemetry.enableCrashReporter": false,

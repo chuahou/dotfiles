@@ -63,16 +63,11 @@ red=$(tput setaf 1)
 default=$(tput sgr0; tput op)
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[$green\]-> \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$blue\]\$ \[$default\]"
+    PS1="${debian_chroot:+($debian_chroot)}\[$green\]→ \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$blue\]\$ \[$default\]"
 else
     PS1="${debian_chroot:+($debian_chroot)}-> \w\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \$ "
 fi
 unset color_prompt force_color_prompt
-
-# print full unicode character if we are in VScode and not buggy gnome-terminal
-if [ -n "$visual_studio" ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[$green\]→ \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$blue\]\$ \[$default\]"
-fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
