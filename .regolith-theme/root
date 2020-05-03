@@ -1,0 +1,12 @@
+! -- root file of Xresource values for theming regolith
+
+! -- our theme files
+#include "color"
+#include "fonts"
+#include "theme"
+
+! -- Regolith files
+#include "/etc/regolith/styles/i3-wm"
+#include "/etc/regolith/styles/i3xrocks"
+#include "/etc/regolith/styles/rofi"
+#include "/etc/regolith/styles/gnome"
