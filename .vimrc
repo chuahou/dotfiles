@@ -21,11 +21,8 @@ highlight ColorColumn ctermbg=3
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 au FileType c,cpp,scala setlocal comments-=:// comments+=f://
 
-" use ron colorscheme
-colorscheme ron
-
-" adjust search highlighting color
-hi Search ctermbg=3 ctermfg=0
+" use delek colorscheme
+colorscheme delek
 
 " add mouse support for vim
 if !has('nvim') " built in for nvim
