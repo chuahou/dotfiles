@@ -32,8 +32,13 @@ alias log="git log"
 alias l="git log"
 
 # vim
-alias e="vim"
-alias vi="vim"
+if command -v nvim; then
+	alias vi="nvim" # use nvim if present
+else
+	alias vi="vim" # otherwise use vim
+fi
+alias vim="vi"
+alias e="vi"
 
 # wget
 alias wget="wget -c"
