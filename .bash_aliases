@@ -37,7 +37,6 @@ if $(command -v nvim > /dev/null); then
 else
 	alias vi="vim" # otherwise use vim
 fi
-alias vim="vi"
 alias e="vi"
 
 # wget
