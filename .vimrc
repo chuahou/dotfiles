@@ -29,3 +29,9 @@ if !has('nvim') " built in for nvim
 	set ttymouse=xterm2
 endif
 set mouse=a
+
+" add copy / paste using \y \p by using + (clipboard) as yank/paste register
+" Ubuntu vim doesn't seem to be compiled with xterm_clipboard :(
+" Check with :version
+noremap <Leader>y "+y
+noremap <Leader>p "+p
