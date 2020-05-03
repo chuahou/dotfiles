@@ -1,6 +1,6 @@
 #define gtk_theme           Cahuella
 #define icon_theme          Arc
-#define desktop_wallpaper   /usr/share/backgrounds/landscape.png
+#define desktop_wallpaper   ~/.regolith-theme/landscape.png
 #define rofi_theme          ~/.regolith-theme/rofi.rasi
 #define theme_terminal_scrollbar never
 
