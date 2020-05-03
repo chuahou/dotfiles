@@ -32,7 +32,7 @@ alias log="git log"
 alias l="git log"
 
 # vim
-if command -v nvim; then
+if $(command -v nvim > /dev/null); then
 	alias vi="nvim" # use nvim if present
 else
 	alias vi="vim" # otherwise use vim
