@@ -27,3 +27,7 @@ colorscheme desert
 
 " adjust search highlighting color
 hi Search ctermbg=3 ctermfg=0
+
+" add mouse support
+set ttymouse=xterm2
+set mouse=n
