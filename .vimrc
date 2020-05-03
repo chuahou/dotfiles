@@ -15,14 +15,13 @@ set number
 
 " highlight past 80
 let &colorcolumn=join(range(81,81),",")
-highlight ColorColumn ctermbg=3
 
 " prevent // autoinsertion
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 au FileType c,cpp,scala setlocal comments-=:// comments+=f://
 
-" use delek colorscheme
-colorscheme delek
+" use chelek colorscheme
+colorscheme chelek
 
 " add mouse support for vim
 if !has('nvim') " built in for nvim
