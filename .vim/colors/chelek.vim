@@ -38,6 +38,7 @@ else
     hi Search     ctermfg=Black	   ctermbg=Yellow guibg=Yellow guifg=Black
 endif
 hi SpecialKey ctermfg=darkgrey
+hi Whitespace ctermfg=darkgrey
 hi StatusLine cterm=bold	   ctermbg=3 ctermfg=0 guibg=gold guifg=blue
 hi StatusLineNC	cterm=bold	   ctermbg=blue ctermfg=black  guibg=gold guifg=blue
 hi Title      ctermfg=DarkMagenta  gui=bold guifg=Magenta
