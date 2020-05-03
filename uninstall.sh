@@ -15,6 +15,12 @@ print_usage ()
 	echo "    -d: delete files without backups"
 }
 
+# ensure we are in script directory
+if [ ! -e $(basename $0) ]; then
+	>&2 echo "Run from script directory"
+	exit 1
+fi
+
 # defaults
 ARGHOME=$HOME
 ARGIGNORE=.install_ignore
@@ -77,9 +83,11 @@ for DOTFILE in $DOTFILES; do
 
 	# check backup exists
 	if [ ! -e "$BACKUPPATH" ]; then
-		if [ -n "$ARGDELETE" ]; then # delete file without backup if is symlink
-			if [[ -L "$HOMEPATH" ]]; then
+		if [ -n "$ARGDELETE" ]; then # delete file without backup
+			if [ $(realpath $HOMEPATH) = "$DOTPATH" ]; then
+				# if is symlink to $DOTPATH
 				rm $HOMEPATH
+				echo "Deleted $HOMEPATH as there was no backup"
 			fi
 		else
 			>&2 echo "$BACKUPPATH does not exist, not restoring $HOMEPATH"

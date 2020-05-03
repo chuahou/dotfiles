@@ -26,7 +26,7 @@ abort ()
 
 # defaults
 ARGHOME=$HOME
-ARGDOTS=$HOME/.dotfiles
+ARGDOTS=$(dirname $0)
 
 # get options
 while getopts 'f:d:o:n' OPTION; do
@@ -85,7 +85,6 @@ else # if exists, ensure it is linked to input file unless ARGNOLINK is set
 	if [ -z "$ARGNOLINK" ]; then
 		if [ $(realpath $OUTFILE) != "$INFILE" ]; then
 			echo "$OUTFILE does not link to $INFILE, really unlink? (y to proceed, otherwise to cancel)"
-			read USERINPUT
 			abort
 		fi
 	fi
