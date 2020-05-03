@@ -1,6 +1,3 @@
-" source default file
-source $VIMRUNTIME/vimrc_example.vim
-
 " make backups go to other folder
 set backupdir=~/.vim/backup//,.
 set directory=~/.vim/backup//,.
@@ -31,5 +28,5 @@ hi Search ctermbg=3 ctermfg=0
 " add mouse support for vim
 if !has('nvim') " build in for nvim
 	set ttymouse=xterm2
-	set mouse=n
+	set mouse=a
 endif
