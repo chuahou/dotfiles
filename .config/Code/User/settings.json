@@ -1,6 +1,6 @@
 {
 	// font settings
-	"editor.fontFamily": "'badfont', 'Victor Mono Medium', 'Fira Code', 'Inconsolata', 'Source Code Pro', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+	"editor.fontFamily": "'badfont', 'Victor Mono Medium', 'Material Design Icons', 'Fira Code', 'Inconsolata', 'Source Code Pro', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
 	"editor.fontLigatures": false, // set to true for ligatured fonts
 	"editor.fontSize": 16,
 	"editor.lineHeight": 26,
