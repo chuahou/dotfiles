@@ -28,6 +28,8 @@ colorscheme desert
 " adjust search highlighting color
 hi Search ctermbg=3 ctermfg=0
 
-" add mouse support
-set ttymouse=xterm2
-set mouse=n
+" add mouse support for vim
+if !has('nvim') " build in for nvim
+	set ttymouse=xterm2
+	set mouse=n
+endif
