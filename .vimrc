@@ -1,6 +1,8 @@
-" make backups go to other folder
-set backupdir=~/.vim/backup//,.
-set directory=~/.vim/backup//,.
+" make backups go to other folder for vim
+if !has('nvim') " nvim overrides these
+	set backupdir=~/.vim/backup//,.
+	set directory=~/.vim/backup//,.
+endif
 
 " turn off undofile
 set noundofile
@@ -19,14 +21,14 @@ highlight ColorColumn ctermbg=3
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 au FileType c,cpp,scala setlocal comments-=:// comments+=f://
 
-" use desert colorscheme
-colorscheme desert
+" use ron colorscheme
+colorscheme ron
 
 " adjust search highlighting color
 hi Search ctermbg=3 ctermfg=0
 
 " add mouse support for vim
-if !has('nvim') " build in for nvim
+if !has('nvim') " built in for nvim
 	set ttymouse=xterm2
-	set mouse=a
 endif
+set mouse=a
