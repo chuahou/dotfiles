@@ -31,6 +31,12 @@
 	// terminal settings
 	"terminal.integrated.allowChords": false, // don't allow chords
 
+	// stop auto-revealing files
+	"explorer.autoReveal": false,
+
+	// disable minimap
+	"editor.minimap.enabled": false,
+
 	// disable telemetry
 	"telemetry.enableCrashReporter": false,
 	"telemetry.enableTelemetry": false,
