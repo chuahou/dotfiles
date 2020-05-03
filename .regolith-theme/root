@@ -4,9 +4,9 @@
 #include "color"
 #include "fonts"
 #include "theme"
+#include "i3-wm"
 
 ! -- Regolith files
-#include "/etc/regolith/styles/i3-wm"
 #include "/etc/regolith/styles/i3xrocks"
 #include "/etc/regolith/styles/rofi"
 #include "/etc/regolith/styles/gnome"
