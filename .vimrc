@@ -34,3 +34,20 @@ set mouse=a
 " Check with :version
 noremap <Leader>y "+y
 noremap <Leader>p "+p
+
+" get vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" list of vim-plug plugins
+call plug#begin('~/.vim/plugged')
+	if has('nvim') " neovim plugins
+	else " vim plugins
+	endif
+
+	" common plugins
+call plug#end()
+
