@@ -56,14 +56,24 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-green=$(tput setaf 2)
-cyan=$(tput setaf 6)
-blue=$(tput setaf 4)
 red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+cyan=$(tput setaf 6)
 default=$(tput sgr0; tput op)
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[$green\]→ \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$blue\]\$ \[$default\]"
+	PROMPT_COMMAND=__prompt_command
+	__prompt_command()
+	{
+		local EXIT="$?"
+		if [ $EXIT = 0 ]; then
+			PS1="${debian_chroot:+($debian_chroot)}\[$green\]→ \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$green\]\$ \[$default\]"
+		else
+			PS1="${debian_chroot:+($debian_chroot)}\[$red\]→ \w\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \$ \[$default\]"
+		fi
+	}
 else
     PS1="${debian_chroot:+($debian_chroot)}-> \w\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \$ "
 fi
