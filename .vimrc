@@ -47,7 +47,11 @@ colorscheme thewursttheme
 set undofile
 
 " add indentation settings
-set tabstop=4 softtabstop=0 shiftwidth=4
+set smartindent   " smart indentation
+set noexpandtab   " use hard tabs
+set tabstop=4     " hard tab width of 4
+set softtabstop=4 " soft tab width of 4
+set shiftwidth=0
 
 " add line numbers
 set number
@@ -95,10 +99,14 @@ call plug#begin('~/.vim/plugged')
 
 	" common plugins
 	Plug 'octol/vim-cpp-enhanced-highlight'
+	Plug 'godlygeek/tabular' " :Tab
 call plug#end()
 
 " default neovim plugins for vim
 if !has('nvim')
-	runtime macros/matchit.vim
+ runtime macros/matchit.vim
 endif
+
+" custom command for aligning by spaces
+command -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
 
