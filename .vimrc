@@ -45,9 +45,15 @@ endif
 " list of vim-plug plugins
 call plug#begin('~/.vim/plugged')
 	if has('nvim') " neovim plugins
+		" firenvim for Firefox integration
+		Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 	else " vim plugins
 	endif
 
 	" common plugins
 call plug#end()
 
+" default neovim plugins for vim
+if !has('nvim')
+	runtime macros/matchit.vim
+endif
