@@ -97,6 +97,7 @@ call plug#begin('~/.vim/plugged')
 	endif
 
 	" common plugins
+	Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " default neovim plugins for vim
