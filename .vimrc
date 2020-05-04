@@ -69,9 +69,6 @@ au FileType c,cpp,scala setlocal comments-=:// comments+=f://
 " use thewursttheme colorscheme
 colorscheme thewursttheme
 
-" enable spell checking
-set spell
-
 " enable mouse in any mode
 set mouse=a
 
