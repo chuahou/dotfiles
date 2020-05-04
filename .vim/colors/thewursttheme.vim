@@ -99,7 +99,7 @@ highlight PreCondit    ctermfg=13 ctermbg=none cterm=none
 highlight Type         ctermfg=2  ctermbg=none cterm=none
 highlight StorageClass ctermfg=3  ctermbg=none cterm=none
 highlight Structure    ctermfg=3  ctermbg=none cterm=none
-highlight Typedef      ctermfg=9  ctermbg=1    cterm=none
+highlight Typedef      ctermfg=3  ctermbg=none cterm=none
 
 " Diff
 highlight DiffAdd    ctermfg=2  ctermbg=10 cterm=none
