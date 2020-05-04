@@ -36,8 +36,8 @@ highlight Search    ctermfg=15 ctermbg=none cterm=reverse
 highlight IncSearch ctermfg=2  ctermbg=none cterm=none
 
 " Prompt/status
-highlight StatusLine   ctermfg=2    ctermbg=none cterm=reverse
-highlight StatusLineNC ctermfg=7    ctermbg=none cterm=reverse
+highlight StatusLine   ctermfg=10   ctermbg=none cterm=reverse
+highlight StatusLineNC ctermfg=2    ctermbg=none cterm=reverse
 highlight WildMenu     ctermfg=none ctermbg=none cterm=reverse
 highlight Question     ctermfg=2    ctermbg=none cterm=none
 highlight Title        ctermfg=5    ctermbg=none cterm=none
