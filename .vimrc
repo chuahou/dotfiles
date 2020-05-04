@@ -20,8 +20,11 @@ let &colorcolumn=join(range(81,81),",")
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 au FileType c,cpp,scala setlocal comments-=:// comments+=f://
 
-" use chelek colorscheme
-colorscheme chelek
+" use thewursttheme colorscheme
+colorscheme thewursttheme
+
+" enable spell checking
+set spell
 
 " add mouse support for vim
 if !has('nvim') " built in for nvim
