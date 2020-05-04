@@ -46,7 +46,7 @@ highlight MoreMsg      ctermfg=2    ctermbg=none cterm=none
 
 " Visual aid
 highlight MatchParen ctermfg=2  ctermbg=none cterm=reverse
-highlight Visual     ctermfg=15 ctermbg=0    cterm=none
+highlight Visual     ctermfg=15 ctermbg=239  cterm=none
 highlight VisualNOS  ctermfg=9  ctermbg=none cterm=reverse
 highlight NonText    ctermfg=9  ctermbg=none cterm=none
 
