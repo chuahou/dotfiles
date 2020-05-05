@@ -1,6 +1,10 @@
 " no need to be vi-compatible
 set nocompatible
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM/NEOVIM COMPATIBILITY                                                     "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if !has('nvim')
 " enable default nvim behaviour in normal vim
 	" backup directories
@@ -14,14 +18,17 @@ if !has('nvim')
 	" enable statusline
 	set laststatus=2
 
+	" highlight searches
+	set hlsearch
+	set incsearch
+
 	" indentation
 	filetype plugin indent on
 	set autoindent
 	set smarttab
 
-	" highlight searches
-	set hlsearch
-	set incsearch
+	" matchit plugin is enabled by default in neovim
+	runtime macros/matchit.vim
 
 	" loads of other stuff from https://neovim.io/doc/user/vim_diff.html
 	set autoread                   " reread file if modified externally
@@ -40,34 +47,26 @@ else
 	set inccommand=nosplit
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" APPEARANCE                                                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " use my colorscheme
 colorscheme thewursttheme
 
+" interface settings
+set number                               " show line numbers
+set foldcolumn=1                         " show fold column
+let &colorcolumn=join(range(81,81),",")  " highlight column 81
+set lcs=tab:>\ \|,trail:+,nbsp:X,space:· " whitespace settings
+set list                                 " show whitespace
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BEHAVIOUR                                                                    "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " turn on undofiles
 set undofile
-
-" add indentation settings
-set smartindent   " smart indentation
-set noexpandtab   " use hard tabs
-set tabstop=4     " hard tab width of 4
-set softtabstop=4 " soft tab width of 4
-set shiftwidth=0
-
-" add line numbers
-set number
-
-" add fold column
-set foldcolumn=1
-
-" highlight past 80
-let &colorcolumn=join(range(81,81),",")
-
-" show whitespace
-set lcs=tab:>\ \|,trail:+,nbsp:X,space:·
-set list
-
-" use thewursttheme colorscheme
-colorscheme thewursttheme
 
 " enable mouse in any mode
 set mouse=a
@@ -77,6 +76,17 @@ set mouse=a
 " Check with :version
 noremap <Leader>y "+y
 noremap <Leader>p "+p
+
+" add indentation settings
+set smartindent   " smart indentation
+set noexpandtab   " use hard tabs
+set tabstop=4     " hard tab width of 4
+set softtabstop=4 " soft tab width of 4
+set shiftwidth=0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS                                                                      "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " get vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -98,9 +108,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'godlygeek/tabular' " :Tab
 call plug#end()
 
-" default neovim plugins for vim
+" run default neovim plugins for vim
 if !has('nvim')
-	runtime macros/matchit.vim
 endif
 
 " custom command for aligning by spaces
