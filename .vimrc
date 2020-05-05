@@ -66,10 +66,6 @@ let &colorcolumn=join(range(81,81),",")
 set lcs=tab:>\ \|,trail:+,nbsp:X,space:·
 set list
 
-" prevent // autoinsertion
-" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
-au FileType c,cpp,scala setlocal comments-=:// comments+=f://
-
 " use thewursttheme colorscheme
 colorscheme thewursttheme
 
