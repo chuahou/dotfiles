@@ -115,7 +115,3 @@ endif
 " custom command for aligning by spaces
 command -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
 
-" autowrite for firenvim
-au TextChanged * ++nested write
-au TextChangedI * ++nested write
-
