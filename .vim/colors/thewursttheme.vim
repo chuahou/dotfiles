@@ -33,7 +33,7 @@ highlight Directory ctermfg=4 ctermbg=none cterm=none
 
 " Search
 highlight Search    ctermfg=15 ctermbg=none cterm=reverse
-highlight IncSearch ctermfg=2  ctermbg=none cterm=none
+highlight IncSearch ctermfg=15 ctermbg=none cterm=reverse
 
 " Prompt/status
 highlight StatusLine   ctermfg=10   ctermbg=none cterm=reverse
