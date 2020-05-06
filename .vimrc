@@ -84,6 +84,9 @@ set tabstop=4     " hard tab width of 4
 set softtabstop=4 " soft tab width of 4
 set shiftwidth=0
 
+" auto wrap after 80 columns
+set textwidth=80
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS                                                                      "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
