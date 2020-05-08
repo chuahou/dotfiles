@@ -58,7 +58,7 @@ highlight SpecialKey ctermfg=15   ctermbg=none cterm=none
 " --- Syntax settings
 
 " Misc syntax
-highlight Underlined ctermfg=9  ctermbg=1    cterm=none
+highlight Underlined ctermfg=2  ctermbg=none cterm=underline
 highlight Ignore     ctermfg=9  ctermbg=1    cterm=none
 highlight Todo       ctermfg=15 ctermbg=9    cterm=none
 highlight Error      ctermfg=1  ctermbg=none cterm=undercurl
