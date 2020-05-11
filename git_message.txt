@@ -1,4 +1,3 @@
-area: do some things
+area:
 
-- Do thing 1
-- Do thing 2
+- 
