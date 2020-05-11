@@ -134,3 +134,6 @@ fi
 
 # configure fuckit alias
 eval "$(thefuck --alias)"
+
+# add coursier stuff to path
+export PATH="$PATH:/home/sgepk/.local/share/coursier/bin"
