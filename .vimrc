@@ -119,6 +119,31 @@ endif
 command -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
 
 " firenvim configuration
-" don't let firenvim takeover by default
 let g:firenvim_config = { 'localSettings': { '.*': { 'takeover': 'never' } } }
+	" don't let firenvim takeover by default
+if exists('g:started_by_firenvim')
+	set laststatus=0     " disable statusline
+	set nonumber         " don't show line numbers
+	set foldcolumn=0     " don't show fold column
+	set nolist           " don't show whitespace
+	set background=light " light background
+	au BufEnter github.com_*.txt set filetype=markdown " use markdown on GitHub
 
+	" delayed write from https://github.com/glacambre/firenvim
+	" write every 1000 ms
+	let g:dont_write = v:false
+	function! My_Write(timer) abort
+		let g:dont_write = v:false
+		write
+	endfunction
+	function! Delay_My_Write() abort
+		if g:dont_write
+			return
+		end
+		let g:dont_write = v:true
+		call timer_start(1000, 'My_Write')
+	endfunction
+	au TextChanged * ++nested call Delay_My_Write()
+	au TextChangedI * ++nested call Delay_My_Write()
+	set autowriteall " write upon quit
+endif
