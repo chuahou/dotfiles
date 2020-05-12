@@ -118,3 +118,7 @@ endif
 " custom command for aligning by spaces
 command -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
 
+" firenvim configuration
+" don't let firenvim takeover by default
+let g:firenvim_config = { 'localSettings': { '.*': { 'takeover': 'never' } } }
+
