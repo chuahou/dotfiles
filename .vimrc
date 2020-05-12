@@ -87,6 +87,9 @@ set shiftwidth=0
 " auto wrap after 80 columns
 set textwidth=80
 
+" remember last position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OTHERS                                                                       "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
