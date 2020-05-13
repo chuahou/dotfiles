@@ -90,13 +90,15 @@ set textwidth=80
 " remember last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" remove extraneous end lines
-function TrimEndLines()
-    let save_cursor = getpos(".")
-    silent! %s#\($\n\s*\)\+\%$##
-    call setpos('.', save_cursor)
-endfunction
-autocmd BufWritePre * call TrimEndLines()
+" remove extraneous end lines if not firenvim
+if !exists('g:started_by_firenvim')
+	function TrimEndLines()
+		let save_cursor = getpos(".")
+		silent! %s#\($\n\s*\)\+\%$##
+		call setpos('.', save_cursor)
+	endfunction
+	autocmd BufWritePre * call TrimEndLines()
+endif
 
 " ensure new line at EOF
 set fixeol
