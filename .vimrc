@@ -134,6 +134,7 @@ call plug#begin('~/.vim/plugged')
 	" common plugins
 	Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'godlygeek/tabular' " :Tab
+	Plug 'vimwiki/vimwiki'   " vimwiki
 call plug#end()
 
 " run default neovim plugins for vim
@@ -172,3 +173,13 @@ if exists('g:started_by_firenvim')
 	au TextChangedI * ++nested call Delay_My_Write()
 	set autowriteall " write upon quit
 endif
+
+" vimwiki configuration
+let g:vimwiki_list = [{
+			\'path'             : '~/Projects/knowledge/wiki/',
+			\'path_html'        : '~/Projects/knowledge/docs/',
+			\'template_path'    : '~/Projects/knowledge/templates/',
+			\'template_default' : 'template',
+			\'template_ext'     : '.html',
+			\}]
+let g:vimwiki_global_ext = 0
