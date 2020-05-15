@@ -184,3 +184,4 @@ let g:vimwiki_list = [{
 			\}]
 let g:vimwiki_global_ext = 0
 noremap <Leader>wo :VimwikiGoto 
+noremap <Leader>wb :Vimwiki2HTMLBrowse

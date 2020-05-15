@@ -41,7 +41,7 @@ alias e="vi"
 
 # vimwiki shortcuts
 alias wiki="e +VimwikiIndex"
-alias wikimake="make -C ~/Projects/knowledge"
+alias wikimake="make -C ~/Projects/knowledge all"
 alias wikipush="git -C ~/Projects/knowledge push origin master"
 alias wikip="wikimake && wikipush"
 
