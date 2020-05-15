@@ -183,3 +183,4 @@ let g:vimwiki_list = [{
 			\'template_ext'     : '.html',
 			\}]
 let g:vimwiki_global_ext = 0
+noremap <Leader>wo :VimwikiGoto 

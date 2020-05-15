@@ -39,6 +39,12 @@ else
 fi
 alias e="vi"
 
+# vimwiki shortcuts
+alias wiki="e +VimwikiIndex"
+alias wikimake="make -C ~/Projects/knowledge"
+alias wikipush="git -C ~/Projects/knowledge push origin master"
+alias wikip="wikimake && wikipush"
+
 # wget
 alias wget="wget -c"
 
