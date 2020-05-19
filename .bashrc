@@ -69,6 +69,8 @@ if [ "$color_prompt" = yes ]; then
 	{
 		local EXIT="$?"
 		if [ $EXIT = 0 ]; then
+			# git function from
+			https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
 			PS1="${debian_chroot:+($debian_chroot)}\[$green\]→ \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$yellow\]令 \[$default\]"
 		else
 			PS1="${debian_chroot:+($debian_chroot)}\[$red\]→ \w\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') 敗 \[$default\]"
@@ -133,10 +135,9 @@ if ! shopt -oq posix; then
 fi
 
 # configure fuckit alias
-eval "$(thefuck --alias)"
-
-# add coursier stuff to path
-export PATH="$PATH:/home/sgepk/.local/share/coursier/bin"
+if $(command -v thefuck > /dev/null); then
+	eval "$(thefuck --alias)"
+fi
 
 # load nvm
 export NVM_DIR="$HOME/.nvm"

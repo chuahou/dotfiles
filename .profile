@@ -32,7 +32,7 @@ PATH="$HOME/.cargo/bin:$PATH"
 # add cross compiled gcc and binutils
 PATH="/usr/local/i386elfgcc/bin:$PATH"
 
-# git function from https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
+
 parse_git_branch()
 {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/'
@@ -43,3 +43,6 @@ PS1="\[\033[0;32m\]→ \[\033[0;36m\]\w\[\033[0;31m\]\$(parse_git_branch) \[\033
 
 # add Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# add coursier stuff to path
+export PATH="$PATH:/home/sgepk/.local/share/coursier/bin"
