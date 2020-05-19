@@ -195,9 +195,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are
   # unset, the cursor color will be the inverse of the cell color.
-  #cursor:
+  cursor:
   #  text: '#000000'
-  #  cursor: '#ffffff'
+    cursor: '#beaf8a'
 
   # Vi mode cursor colors
   #
