@@ -126,5 +126,4 @@ highlight ColorColumn ctermfg=none ctermbg=Red cterm=none
 
 " slight whitespace highlighting
 highlight SpecialKey ctermfg=darkgrey ctermbg=none cterm=none
-highlight Whitespace ctermfg=darkgrey ctermbg=none cterm=none
-
+highlight Whitespace ctermfg=8        ctermbg=none cterm=none
