@@ -122,3 +122,6 @@ fi
 # load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# prevent less paging from disappearing
+export LESS="-Xr"
