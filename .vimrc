@@ -112,6 +112,11 @@ if empty(glob('~/.vim/backup'))
 	silent !mkdir -p ~/.vim/backup
 endif
 
+" Add copyright for new files to be filled in
+autocmd BufNewFile *
+			\ 0r ~/.vim/copyright.txt
+augroup END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS                                                                      "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
