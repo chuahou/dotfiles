@@ -90,15 +90,12 @@ set textwidth=80
 " remember last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" remove extraneous end lines if not firenvim
-if !exists('g:started_by_firenvim')
-	function TrimEndLines()
-		let save_cursor = getpos(".")
-		silent! %s#\($\n\s*\)\+\%$##
-		call setpos('.', save_cursor)
-	endfunction
-	autocmd BufWritePre * call TrimEndLines()
-endif
+function TrimEndLines()
+	let save_cursor = getpos(".")
+	silent! %s#\($\n\s*\)\+\%$##
+	call setpos('.', save_cursor)
+endfunction
+autocmd BufWritePre * call TrimEndLines()
 
 " ensure new line at EOF
 set fixeol
@@ -131,8 +128,6 @@ endif
 " list of vim-plug plugins
 call plug#begin('~/.vim/plugged')
 	if has('nvim') " neovim plugins
-		" firenvim for Firefox integration
-		Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 	else " vim plugins
 	endif
 
@@ -155,39 +150,6 @@ endif
 
 " custom command for aligning by spaces
 command -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
-
-" firenvim configuration
-let g:firenvim_config = { 'localSettings': { '.*': { 'takeover': 'never' } } }
-	" don't let firenvim takeover by default
-if exists('g:started_by_firenvim')
-	set laststatus=0     " disable statusline
-	set nonumber         " don't show line numbers
-	set foldcolumn=0     " don't show fold column
-	set nolist           " don't show whitespace
-	set background=light " light background
-	au BufEnter github.com_*.txt set filetype=markdown " use markdown on GitHub
-
-	" disable coc in browser
-	au BufEnter * :CocDisable
-
-	" delayed write from https://github.com/glacambre/firenvim
-	" write every 1000 ms
-	let g:dont_write = v:false
-	function! My_Write(timer) abort
-		let g:dont_write = v:false
-		write
-	endfunction
-	function! Delay_My_Write() abort
-		if g:dont_write
-			return
-		end
-		let g:dont_write = v:true
-		call timer_start(1000, 'My_Write')
-	endfunction
-	au TextChanged * ++nested call Delay_My_Write()
-	au TextChangedI * ++nested call Delay_My_Write()
-	set autowriteall " write upon quit
-endif
 
 " vimwiki configuration
 let g:vimwiki_list = [{
@@ -218,7 +180,6 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DEFAULT COC THINGS                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !exists("g:started_by_firenvim")
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -362,4 +323,3 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-endif
