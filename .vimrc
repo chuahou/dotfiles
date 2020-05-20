@@ -101,6 +101,38 @@ autocmd BufWritePre * call TrimEndLines()
 set fixeol
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TEMPLATES AUTOCOMMANDS                                                       "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function InsertCopyright()
+	:0r!date "+\%Y"
+	norm gg0OSPDX-License-Identifier: ???
+	norm ggj0iCopyright (c) 
+	norm ggj$a Chua Hou
+endfunction
+command! InsertCopyright call InsertCopyright()
+
+augroup vimrctemplates
+	" clear existing
+	autocmd!
+
+	" wiki % title
+	autocmd BufNewFile *.wiki norm gg0i%title
+
+	" copyright notice except for vimwiki
+	autocmd BufNewFile *[^{.wiki}] call InsertCopyright()
+
+	" comment notice for each filetype
+	autocmd BufNewFile *.c,*.cpp,*.rs,*.scala,*.java norm gg0i// 
+	autocmd BufNewFile *.c,*.cpp,*.rs,*.scala,*.java norm ggj0i// 
+	autocmd BufNewFile *.hs norm gg0i-- 
+	autocmd BufNewFile *.hs norm ggj0i-- 
+	autocmd BufNewFile *.py,*.sh norm gg0i# 
+	autocmd BufNewFile *.py,*.sh norm ggj0i# 
+	autocmd BufNewFile *.sh norm ggO#!/usr/bin/env bash
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OTHERS                                                                       "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -108,11 +140,6 @@ set fixeol
 if empty(glob('~/.vim/backup'))
 	silent !mkdir -p ~/.vim/backup
 endif
-
-" Add copyright for new files to be filled in
-autocmd BufNewFile *
-			\ 0r ~/.vim/copyright.txt
-augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS                                                                      "
@@ -149,7 +176,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " custom command for aligning by spaces
-command -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
+command! -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
 
 " vimwiki configuration
 let g:vimwiki_list = [{
