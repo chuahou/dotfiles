@@ -131,9 +131,10 @@ augroup vimrctemplates
 	autocmd BufNewFile *.c,*.cpp,*.rs,*.scala,*.java norm ggj0i// 
 	autocmd BufNewFile *.hs norm gg0i-- 
 	autocmd BufNewFile *.hs norm ggj0i-- 
-	autocmd BufNewFile *.py,*.sh norm gg0i# 
-	autocmd BufNewFile *.py,*.sh norm ggj0i# 
+	autocmd BufNewFile *.py,*.sh,*.zsh norm gg0i# 
+	autocmd BufNewFile *.py,*.sh,*.zsh norm ggj0i# 
 	autocmd BufNewFile *.sh norm ggO#!/usr/bin/env bash
+	autocmd BufNewFile *.zsh norm ggO#!/usr/bin/env zsh
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
