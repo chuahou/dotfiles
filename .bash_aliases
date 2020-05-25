@@ -29,7 +29,9 @@ alias pull="git pull"
 alias prebase="git pull --rebase"
 alias pr="git pull --rebase"
 alias log="git log"
-alias l="git log"
+alias l="git log --oneline --decorate"
+alias l1="l -n 1"
+alias lshow="git log -n 1"
 
 # vim
 if $(command -v nvim > /dev/null); then
@@ -47,6 +49,9 @@ alias wikip="wikimake && wikipush"
 
 # wget
 alias wget="wget -c"
+
+# make tree max depth 3 by default
+alias tree="tree -L 3"
 
 # enable aliases in sudo
 alias sudo="sudo "
