@@ -94,12 +94,23 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufWinLeave * mkview
 autocmd BufWinEnter * silent! loadview
 
+" trim errant empty lines at end of file
 function TrimEndLines()
 	let save_cursor = getpos(".")
 	silent! %s#\($\n\s*\)\+\%$##
 	call setpos('.', save_cursor)
 endfunction
 autocmd BufWritePre * call TrimEndLines()
+
+" run make if Makefile exists
+function MaybeMake()
+	if filereadable("Makefile")
+		!make
+	endif
+endfunction
+
+" run make upon LaTeX written
+autocmd BufWritePost *.tex silent exec "call MaybeMake()"
 
 " ensure new line at EOF
 set fixeol
