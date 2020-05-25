@@ -88,7 +88,11 @@ set shiftwidth=0
 set textwidth=80
 
 " remember last position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" remember folds
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent! loadview
 
 function TrimEndLines()
 	let save_cursor = getpos(".")
