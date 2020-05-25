@@ -111,9 +111,6 @@ source $ZSH/oh-my-zsh.sh
 
 ### GENERATED FILE ENDS HERE ###
 
-# source aliases
-source ~/.bash_aliases
-
 # configure fuckit alias
 if $(command -v thefuck > /dev/null); then
 	eval "$(thefuck --alias)"
