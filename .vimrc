@@ -90,10 +90,6 @@ set textwidth=80
 " remember last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" remember folds
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent! loadview
-
 " trim errant empty lines at end of file
 function TrimEndLines()
 	let save_cursor = getpos(".")
