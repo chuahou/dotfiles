@@ -217,6 +217,12 @@ let g:coc_global_extensions = [
 " vim-airline configuration
 let g:airline_theme = 'angr'
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:airline#extensions#checks = [
+			\'indent', 'long', 'trailing', 'mixed-indent-file', 'conflicts' ]
+let g:airline#extensions#whitespace#skip_indent_check_ft = {
+			\'vim': ['trailing'],
+			\'vimwiki': ['mixed-indent-file']
+			\}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DEFAULT COC THINGS                                                           "
