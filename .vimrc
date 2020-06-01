@@ -197,6 +197,10 @@ let g:vimwiki_list = [{
 			\'template_path'    : '~/Projects/knowledge/templates/',
 			\'template_default' : 'template',
 			\'template_ext'     : '.html',
+			\'nested_syntaxes'  : {
+				\'algorithm': 'plaintex',
+				\'cpp': 'cpp',
+				\'clang': 'c'},
 			\}]
 let g:vimwiki_global_ext = 0
 noremap <Leader>wo :VimwikiGoto
