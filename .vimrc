@@ -200,12 +200,21 @@ let g:vimwiki_list = [{
 			\'nested_syntaxes'  : {
 				\'algorithm': 'plaintex',
 				\'cpp': 'cpp',
-				\'clang': 'c'},
+				\'clang': 'c',
+				\'scala': 'scala'},
+			\'custom_wiki2html' : 'no.sh',
 			\}]
 let g:vimwiki_global_ext = 0
 noremap <Leader>wo :VimwikiGoto
-noremap <Leader>wb :Vimwiki2HTMLBrowse
-autocmd BufWritePost *.wiki Vimwiki2HTML
+function VimwikiAutoBuild()
+	call system('make -C ~/Projects/knowledge build > /dev/null')
+	if !v:shell_error
+		echo "Converted using pandoc"
+	else
+		echo "Conversion error"
+	endif
+endfunction
+autocmd BufWritePost *.wiki call VimwikiAutoBuild()
 let g:vimwiki_conceallevel = 0
 
 " coc configuration
