@@ -58,7 +58,7 @@ colorscheme thewursttheme
 set number                               " show line numbers
 set foldcolumn=1                         " show fold column
 let &colorcolumn=join(range(81,81),",")  " highlight column 81
-set lcs=tab:>\ \|,trail:+,nbsp:X,space:· " whitespace settings
+set lcs=tab:\|\ \ ,trail:+,nbsp:X,space:· " whitespace settings
 set list                                 " show whitespace
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
