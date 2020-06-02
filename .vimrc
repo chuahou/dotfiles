@@ -178,6 +178,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'Rykka/InstantRst'
+	Plug 'ossobv/vim-rst-tables-py3'
 call plug#end()
 
 " run default neovim plugins for vim
