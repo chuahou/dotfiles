@@ -202,19 +202,12 @@ let g:vimwiki_list = [{
 				\'cpp': 'cpp',
 				\'clang': 'c',
 				\'scala': 'scala'},
-			\'custom_wiki2html' : 'no.sh',
+			\'custom_wiki2html' : '~/Projects/knowledge/wiki2html.sh',
 			\}]
 let g:vimwiki_global_ext = 0
 noremap <Leader>wo :VimwikiGoto
-function VimwikiAutoBuild()
-	call system('make -C ~/Projects/knowledge build > /dev/null')
-	if !v:shell_error
-		echo "Converted using pandoc"
-	else
-		echo "Conversion error"
-	endif
-endfunction
-autocmd BufWritePost *.wiki call VimwikiAutoBuild()
+noremap <Leader>wb :Vimwiki2HTMLBrowse
+autocmd BufWritePost *.wiki :Vimwiki2HTML
 let g:vimwiki_conceallevel = 0
 
 " coc configuration
