@@ -203,7 +203,8 @@ let g:vimwiki_list = [{
 				\'algorithm': 'plaintex',
 				\'cpp': 'cpp',
 				\'clang': 'c',
-				\'scala': 'scala'},
+				\'scala': 'scala',
+				\'haskell': 'haskell'},
 			\'custom_wiki2html' : '~/Projects/knowledge/wiki2html.sh',
 			\}]
 let g:vimwiki_global_ext = 0
