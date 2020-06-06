@@ -20,21 +20,17 @@
 set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM/NEOVIM COMPATIBILITY _nvim
+" VIM/NEOVIM COMPATIBILITY _nvi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if !has('nvim')
 " enable default nvim behaviour in normal vim
-	" backup directories
-	set backupdir=~/.vim/backup//,.
-	set directory=~/.vim/backup//,.
-	set undodir=~/.vim/backup//,.
-
 	" mouse
 	set ttymouse=xterm2
 
-	" enable statusline
+	" enable statusline and ruler
 	set laststatus=2
+	set ruler
 
 	" highlight searches
 	set hlsearch
@@ -60,6 +56,18 @@ if !has('nvim')
 	set history=10000              " max history
 	set langnoremap                " some map shenanigans
 	set nolangremap                " langnoremap but better
+	set nrformats=bin,hex          " number formats for C-A, C-X
+	set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
+	set shortmess=filnxtToOFc
+	set showcmd                    " show partial command
+	set sidescroll=1               " horizontal scroll unit
+	set nostartofline              " don't jump to start of line when switching
+	set tabpagemax=50              " maximum number of tabs
+	set tags=./tags;,tags          " filenames for tag command
+	set ttimeoutlen=50             " timeout length for commands
+	set ttyfast
+	set wildmenu                   " completion menu
+	set wildoptions=pum,tagfile
 else
 " nvim-specific configuration
 	set inccommand=nosplit
@@ -76,7 +84,7 @@ colorscheme thewursttheme
 set number                                " show line numbers
 set foldcolumn=1                          " show fold column
 set colorcolumn=81                        " highlight column 81
-set lcs=tab:>\ \|,trail:+,nbsp:X,space:· " whitespace settings
+set lcs=tab:>\ \|,trail:+,nbsp:X,space:·  " whitespace settings
 set list                                  " show whitespace
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -149,8 +157,9 @@ augroup vimrcautocmd
 	autocmd BufWritePost *.tex silent exec "call MaybeMake()"
 
 	" load and save folds automatically
-	autocmd BufWinLeave * mkview
-	autocmd BufWinEnter * silent! loadview
+	" https://vi.stackexchange.com/a/13874
+	autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
+	autocmd BufWinEnter ?* silent! loadview
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -199,6 +208,11 @@ augroup END
 if empty(glob('~/.vim/backup'))
 	silent !mkdir -p ~/.vim/backup
 endif
+
+" backup directories
+set backupdir=~/.vim/backup//,.
+set directory=~/.vim/backup//,.
+set undodir=~/.vim/backup//,.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS _plugins
