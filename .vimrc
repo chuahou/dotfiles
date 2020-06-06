@@ -113,6 +113,9 @@ set textwidth=80
 " ensure new line at EOF
 set fixeol
 
+" only save folds with mkview / loadview
+set viewoptions=folds
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMANDS _autocmd
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -144,6 +147,10 @@ augroup vimrcautocmd
 
 	" run make upon LaTeX written silently
 	autocmd BufWritePost *.tex silent exec "call MaybeMake()"
+
+	" load and save folds automatically
+	autocmd BufWinLeave * mkview
+	autocmd BufWinEnter * silent! loadview
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
