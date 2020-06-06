@@ -1,8 +1,26 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CONTENTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" To jump, place cursor on one of the tags in the left column and press #.
+"
+" _nvim      VIM / NEOVIM COMPATIBILITY
+" _appear    APPEARANCE
+" _control   CONTROL
+" _behave    BEHAVIOUR
+" _autocmd   AUTOCOMMANDS
+" _templates TEMPLATES AUTOCOMMANDS
+" _others    OTHERS
+" _plugins   PLUGINS
+" _plugcust  PLUGINS CUSTOMIZATION
+" _coc       COC
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " no need to be vi-compatible
 set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM/NEOVIM COMPATIBILITY                                                     "
+" VIM/NEOVIM COMPATIBILITY _nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if !has('nvim')
@@ -48,25 +66,22 @@ else
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" APPEARANCE                                                                   "
+" APPEARANCE _appear
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " use my colorscheme
 colorscheme thewursttheme
 
 " interface settings
-set number                               " show line numbers
-set foldcolumn=1                         " show fold column
-let &colorcolumn=join(range(81,81),",")  " highlight column 81
-set lcs=tab:\|\ \ ,trail:+,nbsp:X,space:· " whitespace settings
-set list                                 " show whitespace
+set number                                " show line numbers
+set foldcolumn=1                          " show fold column
+set colorcolumn=81                        " highlight column 81
+set lcs=tab:>\ \|,trail:+,nbsp:X,space:· " whitespace settings
+set list                                  " show whitespace
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BEHAVIOUR                                                                    "
+" CONTROL _control
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" turn on undofiles
-set undofile
 
 " enable mouse in any mode
 set mouse=a
@@ -76,6 +91,14 @@ set mouse=a
 " Check with :version
 noremap <Leader>y "+y
 noremap <Leader>p "+p
+noremap <Leader>P "+P
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BEHAVIOUR _behave
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" turn on undofiles
+set undofile
 
 " add indentation settings
 set smartindent   " smart indentation
@@ -87,36 +110,53 @@ set shiftwidth=0
 " auto wrap after 80 columns
 set textwidth=80
 
-" remember last position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" ensure new line at EOF
+set fixeol
 
-" trim errant empty lines at end of file
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AUTOCOMMANDS _autocmd
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" remove empty lines at end of file
 function TrimEndLines()
 	let save_cursor = getpos(".")
 	silent! %s#\($\n\s*\)\+\%$##
 	call setpos('.', save_cursor)
 endfunction
-autocmd BufWritePre * call TrimEndLines()
 
-" run make if Makefile exists
+" runs make if Makefile exists in pwd
 function MaybeMake()
 	if filereadable("Makefile")
 		!make
 	endif
 endfunction
 
-" run make upon LaTeX written
-autocmd BufWritePost *.tex silent exec "call MaybeMake()"
+augroup vimrcautocmd
+	" clear existing
+	autocmd!
 
-" ensure new line at EOF
-set fixeol
+	" remember last position when opening file
+	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
+				\ exe "normal! g'\"" | endif
+
+	" remove empty lines on write
+	autocmd BufWritePre * call TrimEndLines()
+
+	" run make upon LaTeX written silently
+	autocmd BufWritePost *.tex silent exec "call MaybeMake()"
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TEMPLATES AUTOCOMMANDS                                                       "
+" TEMPLATES AUTOCOMMANDS _templates
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" inserts copyright notice at top of file
+" SPDX-License-Identifier: ???
+" Copyright (c) YEAR Chua Hou
 function InsertCopyright()
+	" insert current year
 	:0r!date "+\%Y"
+
 	norm gg0OSPDX-License-Identifier: ???
 	norm ggj0iCopyright (c) 
 	norm ggj$a Chua Hou
@@ -145,7 +185,7 @@ augroup vimrctemplates
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OTHERS                                                                       "
+" OTHERS _others
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Create backup directory by default
@@ -154,7 +194,7 @@ if empty(glob('~/.vim/backup'))
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS                                                                      "
+" PLUGINS _plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " get vim-plug
@@ -171,12 +211,22 @@ call plug#begin('~/.vim/plugged')
 	endif
 
 	" common plugins
+
+	" language plugins
 	Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+	" alignment
 	Plug 'godlygeek/tabular'
+
+	" vimwiki
 	Plug 'vimwiki/vimwiki'
+
+	" vim-airline
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+
+	" RST Plugins
 	Plug 'Rykka/InstantRst'
 	Plug 'ossobv/vim-rst-tables-py3'
 call plug#end()
@@ -186,7 +236,7 @@ if !has('nvim')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN CUSTOMISATION                                                         "
+" PLUGIN CUSTOMIZATION _plugcust
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " custom command for aligning by spaces
@@ -194,19 +244,19 @@ command! -range Align <line1>,<line2>s/\s\+/ /g | noh | <line1>,<line2>Tab/ /l0
 
 " vimwiki configuration
 let g:vimwiki_list = [{
-			\'path'             : '~/Projects/knowledge/wiki/',
-			\'path_html'        : '~/Projects/knowledge/docs/',
-			\'template_path'    : '~/Projects/knowledge/templates/',
-			\'template_default' : 'template',
-			\'template_ext'     : '.html',
-			\'nested_syntaxes'  : {
-				\'algorithm': 'plaintex',
-				\'cpp': 'cpp',
-				\'clang': 'c',
-				\'scala': 'scala',
-				\'haskell': 'haskell'},
-			\'custom_wiki2html' : '~/Projects/knowledge/wiki2html.sh',
-			\}]
+			\ 'path'             : '~/Projects/knowledge/wiki/',
+			\ 'path_html'        : '~/Projects/knowledge/docs/',
+			\ 'template_path'    : '~/Projects/knowledge/templates/',
+			\ 'template_default' : 'template',
+			\ 'template_ext'     : '.html',
+			\ 'nested_syntaxes'  : {
+				\ 'algorithm': 'plaintex',
+				\ 'cpp': 'cpp',
+				\ 'clang': 'c',
+				\ 'scala': 'scala',
+				\ 'haskell': 'haskell'},
+			\ 'custom_wiki2html' : '~/Projects/knowledge/wiki2html.sh',
+			\ }]
 let g:vimwiki_global_ext = 0
 noremap <Leader>wo :VimwikiGoto
 noremap <Leader>wb :Vimwiki2HTMLBrowse
@@ -215,31 +265,33 @@ let g:vimwiki_conceallevel = 0
 
 " coc configuration
 let g:coc_global_extensions = [
-			\'coc-python',
-			\'coc-yaml',
-			\'coc-json',
-			\'coc-html',
-			\'coc-css',
-			\'coc-metals',
-			\]
+			\ 'coc-python',
+			\ 'coc-yaml',
+			\ 'coc-json',
+			\ 'coc-html',
+			\ 'coc-css',
+			\ 'coc-metals',
+			\ ]
 
 " vim-airline configuration
 let g:airline_theme = 'angr'
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 let g:airline#extensions#checks = [
-			\'indent', 'long', 'trailing', 'mixed-indent-file', 'conflicts' ]
+			\ 'indent', 'long', 'trailing', 'mixed-indent-file', 'conflicts' ]
 let g:airline#extensions#whitespace#skip_indent_check_ft = {
-			\'vim': ['trailing'],
-			\'vimwiki': ['mixed-indent-file']
-			\}
+			\ 'vim': ['trailing'],
+			\ 'vimwiki': ['mixed-indent-file']
+			\ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DEFAULT COC THINGS                                                           "
+" DEFAULT COC THINGS _coc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
 " Some servers have issues with backup files, see #649.
+" https://github.com/neoclide/coc.nvim/issues/649
 set nobackup
 set nowritebackup
 
