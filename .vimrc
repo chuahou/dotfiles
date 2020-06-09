@@ -303,11 +303,26 @@ let g:vimwiki_list = [{
 let g:vimwiki_global_ext=0
 noremap <Leader>wo :VimwikiGoto
 noremap <Leader>wb :Vimwiki2HTMLBrowse
+let g:vimwiki_conceallevel=0
+
+" vimwiki autowrite
+function VimwikiAutoTOCWrite()
+	" update TOC if existant
+	if match(getline(1), "= Contents =") >= 0
+		exec 'VimwikiTOC'
+	endif
+
+	" write and convert if changed
+	if &mod
+		exec 'write'
+		exec 'Vimwiki2HTML'
+	endif
+endfunction
 augroup VimwikiCustom
 	autocmd!
-	autocmd BufWritePost *.wiki :Vimwiki2HTML
+	autocmd BufLeave *.wiki call VimwikiAutoTOCWrite()
+	autocmd BufWritePost *.wiki call VimwikiAutoTOCWrite()
 augroup END
-let g:vimwiki_conceallevel=0
 
 " coc configuration
 let g:coc_global_extensions = [
