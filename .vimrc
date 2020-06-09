@@ -301,8 +301,8 @@ let g:vimwiki_list = [{
 			\ 'custom_wiki2html' : '~/Projects/knowledge/wiki2html.sh',
 			\ }]
 let g:vimwiki_global_ext=0
-noremap <Leader>wo :VimwikiGoto
-noremap <Leader>wb :Vimwiki2HTMLBrowse
+noremap <Leader>wo :VimwikiGoto<Space>
+noremap <Leader>wb :Vimwiki2HTMLBrowse<CR>
 let g:vimwiki_conceallevel=0
 
 " vimwiki autowrite
