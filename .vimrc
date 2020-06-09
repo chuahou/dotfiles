@@ -303,7 +303,10 @@ let g:vimwiki_list = [{
 let g:vimwiki_global_ext=0
 noremap <Leader>wo :VimwikiGoto
 noremap <Leader>wb :Vimwiki2HTMLBrowse
-autocmd BufWritePost *.wiki :Vimwiki2HTML
+augroup VimwikiCustom
+	autocmd!
+	autocmd BufWritePost *.wiki :Vimwiki2HTML
+augroup END
 let g:vimwiki_conceallevel=0
 
 " coc configuration
