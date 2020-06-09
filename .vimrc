@@ -321,7 +321,7 @@ endfunction
 augroup VimwikiCustom
 	autocmd!
 	autocmd BufLeave *.wiki call VimwikiAutoTOCWrite()
-	autocmd BufWritePost *.wiki call VimwikiAutoTOCWrite()
+	autocmd BufWritePre *.wiki call VimwikiAutoTOCWrite()
 augroup END
 
 " coc configuration
