@@ -120,6 +120,9 @@ command! TE call OpenTerminal()
 nnoremap <Leader>t :TE<CR>
 nnoremap <Leader>T <C-w>v<C-w>l:TE<CR>
 
+" transpose
+nnoremap <C-t> hxpl
+
 " return to normal mode using Esc/C-[ in terminal
 tnoremap <Esc> <C-\><C-n>
 
