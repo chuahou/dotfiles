@@ -97,9 +97,9 @@ set mouse=a
 " add copy / paste using \y \p by using + (clipboard) as yank/paste register
 " Ubuntu vim doesn't seem to be compiled with xterm_clipboard :(
 " Check with :version
-nnoremap <Leader>y "+y
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+noremap <Leader>P "+P
 
 " list buffers and insert :b
 nnoremap <Leader>b :ls<CR>:b<Space>
