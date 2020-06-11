@@ -127,6 +127,9 @@ nnoremap <C-t> hxpl
 " remove highlighting using C-/, that vim seems as C-_ for some reason
 nnoremap <C-_> :noh<CR>
 
+" escape using jj
+inoremap jj <Esc>
+
 " return to normal mode using Esc/C-[ in terminal
 tnoremap <Esc> <C-\><C-n>
 
