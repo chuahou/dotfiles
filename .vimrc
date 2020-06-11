@@ -124,6 +124,9 @@ nnoremap <Leader>T <C-w>v<C-w>l:TE<CR>
 " transpose
 nnoremap <C-t> hxpl
 
+" remove highlighting using C-/, that vim seems as C-_ for some reason
+nnoremap <C-_> :noh<CR>
+
 " return to normal mode using Esc/C-[ in terminal
 tnoremap <Esc> <C-\><C-n>
 
