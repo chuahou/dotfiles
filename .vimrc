@@ -111,7 +111,7 @@ function OpenTerminal()
 	silent exec 'ls'
 	redir END
 
-	if getreg('a')=~#"\"term:\/\/"
+	if getreg('a') =~# "\"term:\/\/"
 		exec 'b term'
 	else
 		exec 'te'
@@ -304,10 +304,10 @@ let g:vimwiki_list = [{
 				\ 'haskell': 'haskell'},
 			\ 'custom_wiki2html' : '~/Projects/knowledge/wiki2html.sh',
 			\ }]
-let g:vimwiki_global_ext=0
+let g:vimwiki_global_ext = 0
 noremap <Leader>wo :VimwikiGoto<Space>
 noremap <Leader>wb :Vimwiki2HTMLBrowse<CR>
-let g:vimwiki_conceallevel=0
+let g:vimwiki_conceallevel = 0
 
 " vimwiki autowrite
 function VimwikiAutoTOCWrite()
