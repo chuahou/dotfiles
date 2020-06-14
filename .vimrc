@@ -130,9 +130,6 @@ nnoremap <C-_> :noh<CR>
 " escape using jj
 inoremap jj <Esc>
 
-" return to normal mode using Esc/C-[ in terminal
-tnoremap <Esc> <C-\><C-n>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEHAVIOUR _behave
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
