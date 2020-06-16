@@ -125,3 +125,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # prevent less paging from disappearing
 export LESS="-Xr"
+
+# vi mode
+source ~/.zsh-vim/zsh-vim-mode.plugin.zsh
