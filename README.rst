@@ -11,6 +11,23 @@ well as summary commits copying updates from dotfiles-scripts.
 
 Scripts under MIT licence.
 
+Cloning with submodules
+=======================
+
+Some essential parts (for now the `zsh-vim-mode plugin
+<https://github.com/softmoth/zsh-vim-mode>`_) are added as submodules.
+Make sure to clone using
+
+::
+
+	git clone https://github.com/chuahou/dotfiles --recursive
+
+Otherwise, if already cloned without submodules, run
+
+::
+
+	git submodule update --init
+
 Contact
 =======
 
