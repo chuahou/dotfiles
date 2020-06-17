@@ -128,3 +128,5 @@ export LESS="-Xr"
 
 # vi mode
 source ~/.zsh-vim/zsh-vim-mode.plugin.zsh
+bindkey -rpM viins '^[^['
+export KEYTIMEOUT=1
