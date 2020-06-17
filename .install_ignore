@@ -1,9 +1,14 @@
+*.sh
+.dotfiles_backup/*
 .git/*
 .gitignore
-.dotfiles_backup/*
+.gitmodules
 .install_ignore
+LICENSE
+README.rst
+cron
+cron.sh
 extract.sh
-unlink.sh
 install.sh
 uninstall.sh
-Readme.md
+unlink.sh
