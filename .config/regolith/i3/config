@@ -284,7 +284,8 @@ bindsym $mod+Escape exec $i3-wm.program.lock
 
 ## Session // Sleep // <><Shift> s ##
 set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
-bindsym $mod+Shift+s exec $i3-wm.program.sleep
+#bindsym $mod+Shift+s exec $i3-wm.program.sleep
+# CUSTOM : disable mod+Shift+s to sleep since I press it out of habit from Win
 
 ###############################################################################
 # System Management
