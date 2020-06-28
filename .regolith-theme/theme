@@ -1,4 +1,4 @@
-#define gtk_theme           Cahuella
+#define gtk_theme           Qogir
 #define icon_theme          Arc
 #define desktop_wallpaper   ~/.regolith-theme/landscape.png
 #define rofi_theme          ~/.regolith-theme/rofi.rasi
