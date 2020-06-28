@@ -16,9 +16,9 @@ no-fading-openclose = false;
 detect-client-opacity = true; # detect _NET_WM_OPACITY
 opacity-rule = # custom application opacity
 [
-	"95:class_g *?= 'code'", # vscode
-	"80:class_g *?= 'rofi'", # rofi
-	"80:class_g *?= 'dunst'" # dunst
+	"95:class_g *?= 'zathura'", # zathura
+	"80:class_g *?= 'rofi'",    # rofi
+	"80:class_g *?= 'dunst'"    # dunst
 ];
 
 # vsync
