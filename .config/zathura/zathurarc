@@ -12,7 +12,7 @@ set inputbar-fg  "#beaf8a"
 set completion-bg           "#222222"
 set completion-fg           "#beaf8a"
 set completion-highlight-bg "#599797"
-set completion-highlight fg "#222222"
+set completion-highlight-fg "#222222"
 set completion-group-bg     "#1b1b1b"
 set completion-group-fg     "#cfbf9b"
 
@@ -45,3 +45,7 @@ set scrollbar-fg    "#beaf8a"
 
 # padding between pages
 set page-padding 10
+
+# C-6 to jump back in jump list like in vim
+map [normal]     <C-6> jumplist backward
+map [fullscreen] <C-6> jumplist backward
