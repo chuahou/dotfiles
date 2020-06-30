@@ -61,3 +61,6 @@ alias sudo="sudo "
 # minimal vim
 alias mvim="e -c 'set laststatus=0 | set cmdheight=1 | set foldcolumn=0 | set signcolumn=no | set nonumber | set norelativenumber | set nolist'"
 alias plan="mvim ~/Plan.txt"
+
+# check git script
+alias cgit="~/Projects/utility/check_git.sh"
