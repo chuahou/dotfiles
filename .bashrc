@@ -70,7 +70,7 @@ if [ "$color_prompt" = yes ]; then
 		local EXIT="$?"
 		if [ $EXIT = 0 ]; then
 			# git function from
-			https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
+			# https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
 			PS1="${debian_chroot:+($debian_chroot)}\[$green\]→ \[$cyan\]\w\[$red\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') \[$yellow\]令 \[$default\]"
 		else
 			PS1="${debian_chroot:+($debian_chroot)}\[$red\]→ \w\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/') 敗 \[$default\]"
