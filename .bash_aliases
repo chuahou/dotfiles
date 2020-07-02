@@ -64,3 +64,6 @@ alias plan="mvim ~/Plan.txt"
 
 # check git script
 alias cgit="~/Projects/utility/check_git.sh"
+
+# restart compton
+alias rcompton="killall compton && sleep 1 && /usr/share/regolith-compositor/init &|"
