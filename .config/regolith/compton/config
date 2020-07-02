@@ -16,8 +16,8 @@ no-fading-openclose = false;
 detect-client-opacity = true; # detect _NET_WM_OPACITY
 opacity-rule = # custom application opacity
 [
-	"95:class_g *?= 'zathura'", # zathura
-	"80:class_g *?= 'rofi'",    # rofi
+	"88:class_g *?= 'zathura'", # zathura
+	"90:class_g *?= 'rofi'",    # rofi
 	"80:class_g *?= 'dunst'"    # dunst
 ];
 
