@@ -52,8 +52,8 @@ alias wikip="wikimake && wikipush"
 # wget
 alias wget="wget -c"
 
-# make tree max depth 3 by default
-alias tree="tree -L 3"
+# make tree max depth 3 by default and exclude .git folder
+alias tree="tree -L 3 -I .git"
 
 # enable aliases in sudo
 alias sudo="sudo "
