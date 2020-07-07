@@ -26,13 +26,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# add cargo
-PATH="$HOME/.cargo/bin:$PATH"
-
-# add cross compiled gcc and binutils
-PATH="/usr/local/i386elfgcc/bin:$PATH"
-
-
 parse_git_branch()
 {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ git:(\1)/'
@@ -41,8 +34,6 @@ parse_git_branch()
 # set PS1
 PS1="\[\033[0;32m\]→ \[\033[0;36m\]\w\[\033[0;31m\]\$(parse_git_branch) \[\033[1;34m\]\$ \[\033[0;0m\]"
 
-# add Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# add coursier stuff to path
-export PATH="$PATH:/home/sgepk/.local/share/coursier/bin"
+# path additions
+export PATH="$HOME/.cargo/bin:$PATH" # rust cargo
+export PATH="$HOME/.cabal/bin:$PATH" # cabal binaries
