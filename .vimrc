@@ -265,6 +265,7 @@ call plug#begin('~/.vim/plugged')
 	" language plugins
 	Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'neovimhaskell/haskell-vim'
 
 	" alignment
 	Plug 'godlygeek/tabular'
