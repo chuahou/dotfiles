@@ -5,8 +5,11 @@ import subprocess
 
 # get spotify session and metadata
 session_bus = dbus.SessionBus()
-spotify_bus = session_bus.get_object("org.mpris.MediaPlayer2.spotify",
-    "/org/mpris/MediaPlayer2")
+try:
+    spotify_bus = session_bus.get_object("org.mpris.MediaPlayer2.spotify",
+        "/org/mpris/MediaPlayer2")
+except:
+    exit()
 spotify_properties = dbus.Interface(spotify_bus,
     "org.freedesktop.DBus.Properties")
 metadata = spotify_properties.Get("org.mpris.MediaPlayer2.Player", "Metadata")
@@ -30,4 +33,3 @@ label_color = subprocess.check_output(
 print("<span color=\"" + label_color + "\">" + label_icon + "</span>" +
     "<span font_desc=\"" + value_font + "\" color=\"" + value_color +
     "\" size=\"small\"> " + artist + " | " + title + "</span>")
-

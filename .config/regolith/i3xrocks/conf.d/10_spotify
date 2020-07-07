@@ -1,4 +1,4 @@
 # Spotify
 [spotify]
 command=~/.config/regolith/i3xrocks/spotify.py
-interval=1
+interval=5
