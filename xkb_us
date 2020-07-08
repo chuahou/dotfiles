@@ -62,10 +62,10 @@ xkb_symbols "basic" {
 
 	key <BKSL> { [ backslash, bar ] };
 
-	// remap <PGDN> to Next, and <AltGr-PGDN> to Prior to circumvent lack of
+	// remap <PGDN> to Next, and <RCTL-PGDN> to Prior to circumvent lack of
 	// <PGUP> key
 	key <PGDN> { [ Next, Next, Prior ] };
 
-	// remap right shift to <AltGr>
-	key <RTSH> { [ ISO_Level3_Shift ] };
+	// remap right control to <ISO_Level3_Shift>
+	key <RCTL> { [ ISO_Level3_Shift ] };
 };
