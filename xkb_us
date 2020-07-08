@@ -1,3 +1,10 @@
+// Symlink / copy this to /usr/share/X11/xkb/symbols/us
+//
+// For example,
+//
+//	sudo mv /usr/share/X11/xkb/symbols/us /usr/share/X11/xkb/symbols/us.orig
+//	sudo ln -s $(realpath xkb_us) /usr/share/X11/xkb/symbols/us
+
 default partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
