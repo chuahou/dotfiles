@@ -9,6 +9,7 @@ README.rst
 cron
 extract.sh
 install.sh
+mozc_keymap.txt
 uninstall.sh
 unlink.sh
 xkb_us
