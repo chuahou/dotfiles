@@ -1,3 +1,0 @@
-[nettraffic-custom]
-command=~/.config/regolith/i3xrocks/net-traffic.sh
-interval=5

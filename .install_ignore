@@ -7,9 +7,9 @@
 LICENSE
 README.rst
 cron
-cron.sh
 extract.sh
 install.sh
+mozc_keymap.txt
 uninstall.sh
 unlink.sh
 xkb_us
