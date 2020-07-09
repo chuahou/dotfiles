@@ -13,6 +13,9 @@ else
 	xrandr --output eDP-1-1 --mode 1920x1080 --rate 60 --primary
 fi
 
+# force full composition pipeline for nvidia to prevent tearing
+nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+
 # disable mouse acceleration
 xset mouse 0 0
 xinput set-prop "Logitech G103 Prodigy Gaming Mouse" \
