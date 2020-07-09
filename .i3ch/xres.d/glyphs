@@ -1,0 +1,34 @@
+! Glyphs mainly for use with i3xrocks
+
+#define GLYPH_FONT "Material Design Icons 12"
+
+#define GLYPH_WIFI 
+#define GLYPH_WIRED 
+#define GLYPH_UP 
+#define GLYPH_DN 
+#define GLYPH_CPU 
+#define GLYPH_BATTERY_100 
+#define GLYPH_BATTERY_80 
+#define GLYPH_BATTERY_50 
+#define GLYPH_BATTERY_20 
+#define GLYPH_BATTERY_0 
+#define GLYPH_BATTERY_CHARGING 
+#define GLYPH_BATTERY_AC 
+#define GLYPH_BATTERY_UNKNOWN 
+#define GLYPH_TIME 
+#define GLYPH_WORKSPACE 
+#define GLYPH_DISK 
+#define GLYPH_MEDIA_PLAYING 
+#define GLYPH_MEDIA_PAUSED 
+#define GLYPH_NOTIFY_NONE 
+#define GLYPH_NOTIFY_SOME 
+#define GLYPH_NOTIFY_ERROR 
+#define GLYPH_HELP 
+#define GLYPH_THERMOMETER 
+#define GLYPH_SOUND 
+#define GLYPH_MUTE 
+#define GLYPH_MEMORY 
+#define GLYPH_ON 
+#define GLYPH_OFF 
+#define GLYPH_NUMLOCK 
+#define GLYPH_CAPSLOCK 
