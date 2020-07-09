@@ -12,3 +12,4 @@ extract.sh
 install.sh
 uninstall.sh
 unlink.sh
+xkb_us
