@@ -7,7 +7,6 @@
 LICENSE
 README.rst
 cron
-cron.sh
 extract.sh
 install.sh
 uninstall.sh
