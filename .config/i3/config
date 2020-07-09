@@ -198,7 +198,7 @@ bindsym $mod+Ctrl+r  restart
 mode "End Session [mod+l] logout [mod+p] shutdown [mod+r] restart" {
 	bindsym $mod+l exec i3-msg exit
 	bindsym $mod+p exec systemctl shutdown
-	bindsym $mod+r exec systemctl restart
+	bindsym $mod+r exec systemctl reboot
 
 	bindsym $mod+Shift+e mode "default"
 	bindsym $mod+Shift+p mode "default"
