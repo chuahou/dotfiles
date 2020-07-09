@@ -1,8 +1,8 @@
 ! Xresources file for i3ch
 
 ! #define files
-#include "xres.d/colour"
-#include "xres.d/glyphs"
+#include "colour"
+#include "glyphs"
 
 ! colours
 i3ch.colour_gray0:   COLOUR_GRAY0
