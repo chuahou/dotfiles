@@ -1,3 +1,6 @@
 [submodule ".zsh-vim"]
 	path = .zsh-vim
 	url = https://github.com/softmoth/zsh-vim-mode
+[submodule "dotfiles-scripts"]
+	path = dotfiles-scripts
+	url = https://github.com/chuahou/dotfiles-scripts
