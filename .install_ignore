@@ -7,6 +7,7 @@
 LICENSE
 README.rst
 cron
+dotfiles-scripts/*
 extract.sh
 install.sh
 mozc_keymap.txt
