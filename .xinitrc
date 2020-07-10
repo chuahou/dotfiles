@@ -3,6 +3,9 @@
 # load Xresources
 xrdb -merge $HOME/.Xresources
 
+# force full composition pipeline for nvidia to prevent tearing
+nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+
 # check if external monitor connected to HDMI-0
 # this specific setup for Dell G7 and Prism+ W240
 if [ $(xrandr -q | grep -c "HDMI-0 connected") -gt 0 ]; then
@@ -13,9 +16,6 @@ else
 	xrandr --output eDP-1-1 --mode 1920x1080 --rate 60 --primary \
 		--output HDMI-0 --off
 fi
-
-# force full composition pipeline for nvidia to prevent tearing
-nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
 # disable mouse acceleration
 xset mouse 0 0
