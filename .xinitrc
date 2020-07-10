@@ -7,10 +7,11 @@ xrdb -merge $HOME/.Xresources
 # this specific setup for Dell G7 and Prism+ W240
 if [ $(xrandr -q | grep -c "HDMI-0 connected") -gt 0 ]; then
 	# turn off eDP-1-1 and connect only to HDMI-0
-	xrandr --output eDP-1-1 --off
-	xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --primary
+	xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --primary \
+		--output eDP-1-1 --off
 else
-	xrandr --output eDP-1-1 --mode 1920x1080 --rate 60 --primary
+	xrandr --output eDP-1-1 --mode 1920x1080 --rate 60 --primary \
+		--output HDMI-0 --off
 fi
 
 # force full composition pipeline for nvidia to prevent tearing

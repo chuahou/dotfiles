@@ -6,7 +6,7 @@ set $mod Mod1
 set $alt Mod4
 
 # applications with options
-set $terminal alacritty
+set $terminal --no-startup-id alacritty
 set $browser  firefox
 set $rofi     rofi
 set $filemgr  nautilus --new-window
