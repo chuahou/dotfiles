@@ -67,10 +67,10 @@ if !has('nvim')
 	set ttimeoutlen=50             " timeout length for commands
 	set ttyfast
 	set wildmenu                   " completion menu
-	set wildoptions=pum,tagfile
 else
 " nvim-specific configuration
 	set inccommand=nosplit
+	set wildoptions=pum,tagfile
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,6 +171,26 @@ function MaybeMake()
 	endif
 endfunction
 
+" runs stylish-haskell on Haskell files
+" based heavily on https://github.com/nbouscal/vim-stylish-haskell
+function RunStylishHaskell()
+	let output = system("stylish-haskell" . " " . bufname("%"))
+	let errors = matchstr(output, '\(Language\.Haskell\.Stylish\.Parse\.parseModule:[^\x0]*\)')
+	if v:shell_error != 0
+		echom output
+	elseif empty(errors)
+		let winview = winsaveview()
+		silent! undojoin
+		normal! gg"_dG
+		call append(0, split(output, '\v\n'))
+		normal! G"_dd
+		call winrestview(winview)
+		write
+	else
+		echom errors
+	endif
+endfunction
+
 augroup vimrcautocmd
 	" clear existing
 	autocmd!
@@ -184,6 +204,9 @@ augroup vimrcautocmd
 
 	" run make upon LaTeX written silently
 	autocmd BufWritePost *.tex silent exec "call MaybeMake()"
+
+	" run stylish-haskell upon Haskell when written
+	autocmd BufWritePost *.hs call RunStylishHaskell()
 
 	" load and save folds automatically
 	" https://vi.stackexchange.com/a/13874
