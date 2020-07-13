@@ -166,28 +166,32 @@ endfunction
 
 " runs make if Makefile exists in pwd
 function MaybeMake()
-	if filereadable("Makefile")
-		!make
+	if executable("make")
+		if filereadable("Makefile")
+			!make
+		endif
 	endif
 endfunction
 
 " runs stylish-haskell on Haskell files
 " based heavily on https://github.com/nbouscal/vim-stylish-haskell
 function RunStylishHaskell()
-	let output = system("stylish-haskell" . " " . bufname("%"))
-	let errors = matchstr(output, '\(Language\.Haskell\.Stylish\.Parse\.parseModule:[^\x0]*\)')
-	if v:shell_error != 0
-		echom output
-	elseif empty(errors)
-		let winview = winsaveview()
-		silent! undojoin
-		normal! gg"_dG
-		call append(0, split(output, '\v\n'))
-		normal! G"_dd
-		call winrestview(winview)
-		write
-	else
-		echom errors
+	if executable("stylish-haskell")
+		let output = system("stylish-haskell" . " " . bufname("%"))
+		let errors = matchstr(output, '\(Language\.Haskell\.Stylish\.Parse\.parseModule:[^\x0]*\)')
+		if v:shell_error != 0
+			echom output
+		elseif empty(errors)
+			let winview = winsaveview()
+			silent! undojoin
+			normal! gg"_dG
+			call append(0, split(output, '\v\n'))
+			normal! G"_dd
+			call winrestview(winview)
+			write
+		else
+			echom errors
+		endif
 	endif
 endfunction
 
