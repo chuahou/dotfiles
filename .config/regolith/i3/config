@@ -336,9 +336,6 @@ bindsym $mod+i bar mode toggle
 floating_maximum_size -1 x -1
 for_window [class="Gnome-control-center"] floating enable
 
-# CUSTOM : floating windows
-for_window [class="Nautilus"] floating enable
-
 ###############################################################################
 # Window Resize and Gaps
 ###############################################################################
