@@ -22,7 +22,6 @@ opacity-rule = # custom application opacity
 ];
 
 # vsync
-refresh-rate = 60;
 vsync = true;
 dbe = true; # reportedly doesn't do much but we can try
 
