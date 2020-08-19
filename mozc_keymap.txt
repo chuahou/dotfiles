@@ -136,6 +136,9 @@ Precomposition	Space	InsertSpace
 Prediction	Ctrl Delete	DeleteSelectedCandidate
 Suggestion	Down	PredictAndConvert
 Suggestion	Shift Enter	CommitFirstSuggestion
+Precomposition	Ctrl Shift Escape	ToggleAlphanumericMode
+Precomposition	Ctrl Shift Escape	IMEOff
+DirectInput	Ctrl Shift Escape	InputModeHiragana
 Composition	ASCII	InsertCharacter
 Composition	Kanji	IMEOff
 Composition	OFF	IMEOff
@@ -149,4 +152,3 @@ Precomposition	ASCII	InsertCharacter
 Precomposition	Kanji	IMEOff
 Precomposition	OFF	IMEOff
 Precomposition	ON	IMEOn
-DirectInput	Ctrl Shift ~	InputModeHiragana
