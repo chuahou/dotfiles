@@ -1,2 +1,2 @@
-set noexpandtab
-set textwidth=72
+setlocal noexpandtab
+setlocal textwidth=72

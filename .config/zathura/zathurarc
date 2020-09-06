@@ -49,3 +49,6 @@ set page-padding 10
 # C-6 to jump back in jump list like in vim
 map [normal]     <C-6> jumplist backward
 map [fullscreen] <C-6> jumplist backward
+
+# use main clipboard
+set selection-clipboard clipboard
